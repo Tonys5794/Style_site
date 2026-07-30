@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Студия красоты — сайт с онлайн-записью</title>
-<meta name="description" content="Студия красоты: маникюр, педикюр, стрижки, брови, депиляция, татуаж, уход за лицом. Онлайн-запись 24/7.">
+<title>LAVIS — студия красоты в Новосибирске</title>
+<meta name="description" content="Студия красоты LAVIS в Новосибирске: маникюр, педикюр, стрижки, брови, депиляция, татуаж, уход за лицом. Онлайн-запись.">
+
+<!-- превью ссылки в мессенджерах -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="LAVIS — студия красоты в Новосибирске">
+<meta property="og:description" content="Ногти, волосы, брови, уход и депиляция в одном месте. Онлайн-запись 24/7.">
+<meta property="og:image" content="images/about.jpg">
+<meta property="og:image:width" content="900">
+<meta property="og:image:height" content="1125">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%235a2d9c'/><text x='32' y='45' font-size='34' font-family='Georgia,serif' text-anchor='middle' fill='%23e3c06a'>L</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -58,6 +69,13 @@
   .stats{display:flex;justify-content:space-around;padding-top:18px;border-top:1px solid rgba(255,255,255,.2)}
   .stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--gold)}
   .stat span{font-size:12.5px;color:#e2d8fb}
+
+  /* фотографии */
+  img.photo{width:100%;height:100%;object-fit:cover;display:block}
+  .g-item img.photo,.about-photo img.photo{transition:transform .5s}
+  .g-item:hover img.photo{transform:scale(1.06)}
+  .map{margin-top:22px;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9}
+  .map iframe{width:100%;height:100%;border:0;display:block}
 
   .ph{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;width:100%;height:100%;min-height:140px;
       background:linear-gradient(135deg,#efe7fb,#e5ecff);color:var(--violet);text-align:center;padding:10px}
@@ -149,8 +167,8 @@
   .ba-wrap{max-width:680px;margin:0 auto}
   .ba{position:relative;aspect-ratio:3/2;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);user-select:none;touch-action:none;cursor:ew-resize}
   .ba .layer{position:absolute;inset:0}
-  .ba .after{background:linear-gradient(135deg,#4a2597,#3f5bd8)}
-  .ba .before{background:linear-gradient(135deg,#d7cceb,#c2cdf0);clip-path:inset(0 50% 0 0)}
+  .ba .after{background:url('images/ba-after.jpg') center/cover}
+  .ba .before{background:url('images/ba-before.jpg') center/cover;clip-path:inset(0 50% 0 0)}
   .ba .lbl{position:absolute;top:14px;font-size:11px;font-weight:700;letter-spacing:.12em;background:rgba(20,10,40,.42);color:#fff;padding:6px 13px;border-radius:20px}
   .ba .lbl.l{left:14px}.ba .lbl.r{right:14px}
   .ba .handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%)}
@@ -202,12 +220,12 @@
 </head>
 <body>
 
-<div class="demo-note">Это <b>демо-версия</b> сайта для бьюти-студии — название, фото, цены и тексты заменим на ваши</div>
+<div class="demo-note">Это <b>демо-версия</b> — фото, цены и тексты заменим на ваши реальные · сделал Антон для студии LAVIS</div>
 
 <header>
   <div class="wrap">
     <nav>
-      <div class="logo">СТУДИЯ</div>
+      <div class="logo">LAVIS</div>
       <div class="menu" id="menu">
         <a href="#services" onclick="closeMenu()">Услуги</a>
         <a href="#about" onclick="closeMenu()">О студии</a>
@@ -223,7 +241,7 @@
 <div class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="kicker on-dark">Студия красоты</span>
+      <span class="kicker on-dark">Студия красоты · Новосибирск</span>
       <h1>Красота <em>под ключ</em> — в одном месте</h1>
       <p class="lead">Ногти, волосы, брови, уход и депиляция. Опытные мастера, уютная атмосфера и запись онлайн в пару кликов.</p>
       <div class="hero-cta">
@@ -232,8 +250,9 @@
       </div>
     </div>
     <div class="hero-card">
-      <div class="avatar"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 12c2.8 0 5-2.2 5-5s-2.2-5-5-5-5 2.2-5 5 2.2 5 5 5z"/><path d="M3 21c0-4 4-7 9-7s9 3 9 7"/></svg><span>Фото студии</span></div></div>
-      <h3>Студия красоты</h3>
+      <!-- ФОТО: замени images/avatar.jpg на фото студии клиента -->
+      <div class="avatar"><img class="photo" src="images/avatar.jpg" alt="Интерьер студии красоты"></div>
+      <h3>Студия красоты LAVIS</h3>
       <div class="role">Ногти · волосы · брови · уход</div>
       <div class="stats">
         <div class="stat"><b>5.0★</b><span>рейтинг</span></div>
@@ -282,7 +301,7 @@
         <h3>Брови и ресницы</h3>
         <ul>
           <li>Оформление бровей</li>
-          <li>Наращивание ресниц</li>
+          <li>Наращивание и ламинирование ресниц</li>
         </ul>
       </div>
       <div class="serv">
@@ -303,7 +322,7 @@
         <div class="ic">🌸</div>
         <h3>Уход за лицом</h3>
         <ul>
-          <li>Уход и косметология</li>
+          <li>Улиткотерапия: лицо, декольте, руки</li>
         </ul>
       </div>
     </div>
@@ -312,11 +331,12 @@
 
 <section class="about" id="about">
   <div class="wrap about-grid">
-    <div class="about-photo"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg><span>Фото студии</span></div></div>
+    <!-- ФОТО: images/about.jpg — общий план студии -->
+    <div class="about-photo"><img class="photo" src="images/about.jpg" alt="Зал студии красоты" loading="lazy"></div>
     <div class="about-text">
       <span class="kicker">О студии</span>
-      <h2>Ваша красота под ключ</h2>
-      <p>Студия красоты, где можно привести себя в порядок целиком: ногти, волосы, брови, уход и депиляция — в одном месте, у опытных мастеров.</p>
+      <h2>LAVIS — ваша красота под ключ</h2>
+      <p>Студия красоты в Новосибирске, где можно привести себя в порядок целиком: ногти, волосы, брови, уход и депиляция — в одном месте, у опытных мастеров.</p>
       <p>Уютная атмосфера, аккуратность и внимание к каждому клиенту. Записывайтесь онлайн в удобное время — 24/7.</p>
       <div class="tags">
         <span class="tag">Опытные мастера</span>
@@ -336,6 +356,7 @@
       <p>Потяните ползунок, чтобы увидеть работу наших мастеров.</p>
     </div>
     <div class="ba-wrap">
+      <!-- ФОТО: images/ba-before.jpg и images/ba-after.jpg — один и тот же клиент до/после -->
       <div class="ba" id="ba">
         <div class="layer after"></div>
         <div class="layer before"></div>
@@ -361,14 +382,15 @@
       <button class="filt" onclick="filterGallery('hair',this)">Волосы</button>
       <button class="filt" onclick="filterGallery('brows',this)">Брови</button>
     </div>
+    <!-- ФОТО: images/g1..g6 — работы мастеров, порядок совпадает с фильтром внизу -->
     <div class="gallery" id="galleryGrid">
-      <div class="g-item"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg><span>Фото работы</span></div></div>
-      <div class="g-item"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg><span>Фото работы</span></div></div>
-      <div class="g-item"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg><span>Фото работы</span></div></div>
-      <div class="g-item"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg><span>Фото работы</span></div></div>
-      <div class="g-item"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg><span>Фото работы</span></div></div>
-      <div class="g-item"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="9" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg><span>Фото работы</span></div></div>
-      <div class="g-cta" onclick="openBooking(event)"><b>Записаться →</b><span>Студия красоты</span></div>
+      <div class="g-item"><img class="photo" src="images/g1-nails.jpg" alt="Маникюр — работа мастера" loading="lazy"></div>
+      <div class="g-item"><img class="photo" src="images/g2-hair.jpg" alt="Укладка волос" loading="lazy"></div>
+      <div class="g-item"><img class="photo" src="images/g3-brows.jpg" alt="Оформление бровей" loading="lazy"></div>
+      <div class="g-item"><img class="photo" src="images/g4-nails.jpg" alt="Маникюр с дизайном" loading="lazy"></div>
+      <div class="g-item"><img class="photo" src="images/g5-hair.jpg" alt="Стрижка и укладка" loading="lazy"></div>
+      <div class="g-item"><img class="photo" src="images/g6-nails.jpg" alt="Аккуратный маникюр" loading="lazy"></div>
+      <div class="g-cta" onclick="openBooking(event)"><b>Записаться →</b><span>LAVIS Новосибирск</span></div>
     </div>
   </div>
 </section>
@@ -380,7 +402,7 @@
       <h2>Что говорят клиенты</h2>
     </div>
     <div class="review-grid">
-      <div class="review"><div class="stars">★★★★★</div><p>«Хожу сюда и на ногти, и на брови. Удобно, что всё в одном месте. Мастера золотые, атмосфера тёплая.»</p><div class="who">Мария К.</div></div>
+      <div class="review"><div class="stars">★★★★★</div><p>«Хожу в LAVIS и на ногти, и на брови. Удобно, что всё в одном месте. Мастера золотые, атмосфера тёплая.»</p><div class="who">Мария К.</div></div>
       <div class="review"><div class="stars">★★★★★</div><p>«Делала стрижку и укладку к фотосессии — получилось шикарно. Записалась онлайн за минуту, всё вовремя.»</p><div class="who">Ольга Т.</div></div>
       <div class="review"><div class="stars">★★★★★</div><p>«Наконец нашла свою студию. Аккуратно, стерильно, по-доброму. Рекомендую всем подругам!»</p><div class="who">Дарья В.</div></div>
     </div>
@@ -447,15 +469,20 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="kicker">Запись</span>
-      <h2>Записаться к нам</h2>
+      <h2>Записаться в LAVIS</h2>
       <p>Оставьте заявку — мы свяжемся и подберём удобное время.</p>
     </div>
     <div class="contact-grid">
       <div>
-        <div class="info-row"><div class="ic">📍</div><div><b>Адрес</b><span>Город, адрес студии</span></div></div>
+        <div class="info-row"><div class="ic">📍</div><div><b>Адрес</b><span>Новосибирск (адрес студии)</span></div></div>
         <div class="info-row"><div class="ic">📞</div><div><b>Телефон / WhatsApp</b><span>+7 (___) ___-__-__</span></div></div>
         <div class="info-row"><div class="ic">🕐</div><div><b>Часы работы</b><span>Ежедневно, по предварительной записи</span></div></div>
         <div class="info-row"><div class="ic">💬</div><div><b>Мы в сети</b><span>ВКонтакте · WhatsApp · Telegram</span></div></div>
+        <!-- КАРТА: подставь координаты студии — ll=долгота,широта (Конструктор карт Яндекса) -->
+        <div class="map">
+          <iframe src="https://yandex.ru/map-widget/v1/?ll=82.920430%2C55.030199&z=12" loading="lazy"
+                  title="Студия на карте" allowfullscreen></iframe>
+        </div>
       </div>
       <form name="booking" onsubmit="submitForm(event)">
         <div class="field"><label>Как вас зовут</label><input type="text" name="name" required placeholder="Ваше имя"></div>
@@ -476,9 +503,9 @@
 
 <footer>
   <div class="wrap">
-    <div class="logo" style="background:linear-gradient(120deg,#b89bff,#8fa8ff);-webkit-background-clip:text;background-clip:text;color:transparent">СТУДИЯ</div>
+    <div class="logo" style="background:linear-gradient(120deg,#b89bff,#8fa8ff);-webkit-background-clip:text;background-clip:text;color:transparent">LAVIS</div>
     <div class="socials"><a href="#">ВКонтакте</a><a href="#">Telegram</a><a href="#">WhatsApp</a></div>
-    <div class="fine">© 2026 Студия красоты</div>
+    <div class="fine">© 2026 Студия красоты LAVIS · Новосибирск</div>
     <div class="legal"><a href="policy.html">Политика конфиденциальности</a></div>
   </div>
 </footer>
