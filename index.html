@@ -62,13 +62,24 @@
   .hero h1 em{font-style:italic;color:var(--gold)}
   .hero .lead{font-size:18px;color:#e9e2fb;max-width:450px;margin-bottom:32px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:26px;padding:30px;text-align:center;backdrop-filter:blur(6px)}
-  .hero-card .avatar{width:160px;height:160px;border-radius:50%;overflow:hidden;margin:0 auto 14px;border:2px solid var(--gold)}
-  .hero-card h3{font-size:24px;color:#fff;margin-bottom:2px}
-  .hero-card .role{color:#e2d8fb;font-size:14px;margin-bottom:18px}
-  .stats{display:flex;justify-content:space-around;padding-top:18px;border-top:1px solid rgba(255,255,255,.2)}
-  .stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--gold)}
-  .stat span{font-size:12.5px;color:#e2d8fb}
+  /* большое фото студии вместо кружка-аватара */
+  .hero-photo{position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;
+    box-shadow:0 26px 64px rgba(15,5,45,.42);border:1px solid rgba(255,255,255,.18)}
+  .hero-photo>img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-photo:after{content:"";position:absolute;inset:auto 0 0 0;height:52%;
+    background:linear-gradient(to top,rgba(22,10,52,.78),rgba(22,10,52,0))}
+  .hero-badge{position:absolute;top:18px;left:18px;z-index:2;background:rgba(255,255,255,.16);
+    backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:30px;
+    padding:7px 15px;font-size:12px;font-weight:600;letter-spacing:.04em;display:flex;align-items:center;gap:7px}
+  .hero-badge i{width:8px;height:8px;border-radius:50%;background:#7ee2a8;box-shadow:0 0 0 4px rgba(126,226,168,.25);font-style:normal}
+  .hero-caption{position:absolute;left:22px;right:22px;bottom:20px;z-index:2}
+  .hero-caption h3{font-size:25px;color:#fff;margin-bottom:2px}
+  .hero-caption .role{color:#ded3fb;font-size:13.5px;margin-bottom:14px}
+  .stats{display:flex;justify-content:space-between;gap:8px;padding-top:14px;border-top:1px solid rgba(255,255,255,.28)}
+  .stat{text-align:center;flex:1}
+  .stat b{display:block;font-family:var(--serif);font-size:25px;color:var(--gold);line-height:1.1}
+  .stat span{font-size:11.5px;color:#ded3fb}
+  @media(max-width:820px){.hero-photo{aspect-ratio:3/4;max-width:460px;margin:0 auto}}
 
   /* фотографии */
   img.photo{width:100%;height:100%;object-fit:cover;display:block}
@@ -249,15 +260,18 @@
         <a href="#services" class="btn btn-line">Все услуги</a>
       </div>
     </div>
-    <div class="hero-card">
-      <!-- ФОТО: замени images/avatar.jpg на фото студии клиента -->
-      <div class="avatar"><img class="photo" src="images/avatar.jpg" alt="Интерьер студии красоты"></div>
-      <h3>Студия красоты LAVIS</h3>
-      <div class="role">Ногти · волосы · брови · уход</div>
-      <div class="stats">
-        <div class="stat"><b>5.0★</b><span>рейтинг</span></div>
-        <div class="stat"><b>1.1K</b><span>подписчиков</span></div>
-        <div class="stat"><b>24/7</b><span>онлайн-запись</span></div>
+    <!-- ФОТО: images/hero.jpg — главный кадр студии (вертикальный, 4:5) -->
+    <div class="hero-photo">
+      <img src="images/hero.jpg" alt="Мастер студии красоты LAVIS за работой">
+      <div class="hero-badge"><i></i>Сегодня есть свободные окна</div>
+      <div class="hero-caption">
+        <h3>Студия красоты LAVIS</h3>
+        <div class="role">Ногти · волосы · брови · уход</div>
+        <div class="stats">
+          <div class="stat"><b>5.0★</b><span>рейтинг</span></div>
+          <div class="stat"><b>1.1K</b><span>подписчиков</span></div>
+          <div class="stat"><b>24/7</b><span>онлайн-запись</span></div>
+        </div>
       </div>
     </div>
   </div>
